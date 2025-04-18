@@ -1,0 +1,35 @@
+Gulp.JS ===> Is A toolkit to automate & enhance your workflow
+-------------------------------------------------------------
+
+You Should Know { HTML, CSS, JavaScript } Before Begin In This Tool
+-------------------------------------------------------------------
+
+Rules In NodeJS Command Prompt:
+===============================
+1 - node --version | node -v ===> For Get Version Of NodeJS In Desktop
+2 - Select Position Of Project Then Use Gulp Packages In That Position 🎉🌹🎉
+
+For Use Gulp.JS: << All Installiation Needs VPN >>
+==================================================
+1 - Create Folder For Project
+2 - Change Directory To New Folder 
+3 - npm init ===> For Create a (package.json) file in your project directory
+4 - gulp -v | gulp --version ===> For Get Version Of GulpJS
+5 - npm install gulp -g ===> For install GulpJS In All System
+    ||OR
+6 - npm install --global gulp-cli ===> For install GulpJS In All System
+7 - npm install --save-dev gulp ===> For Install gulp package in your devDependencies
+    --save ===> In your workspace, -dev ===> devDependencies
+
+How Gulp Working << Important >>
+================================
+1 - Build Project As:
+---------------------
+Project|
+1========Dist(distributin | توزيع) ===> All Changes Will Put Here Automateclie
+2========Project(gulpfile.js + Here Put All Files For Development It)
+3========package.json
+2 - Build Your Task In File (gulpfile.js) Then
+----------------------------------------------
+3 - Open NodeJs Command Prompt Then Write (gulp name_of_task) For Run gulpfile.js Code
+--------------------------------------------------------------------------------------
