@@ -1,0 +1,26 @@
+Create Any Task:
+================
+1 - const gulp = require("gulp");
+2 - 
+    gulp.task("name_task", async function () {
+        statements Executes When You Write (gulp name_task) in NodeJS command Prompt
+    });
+
+Lesson 1 ===> Src, Dest
+1==gulp.src("From") ===> For Select File|Files You Want To Use It For Implement Operations On It
+Example:
+1
+gulp.src("project/index.html") ===> Select One File HTML
+2
+gulp.src("project/*.html) ===> Select All HTML Files
+2==gulp.dest("To") ===> Select Position You Want Files To Go When It Finish Operations
+Example:
+gulp.dest("dist/html")
+=============
+Full Example:
+=============
+const gulp = require("gulp");
+gulp.task("k1", async function() {
+    return gulp.src("project/index.html")
+    .pipe(gulp.dest("dist/html"));
+});

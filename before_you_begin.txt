@@ -32,4 +32,6 @@ Project|
 2 - Build Your Task In File (gulpfile.js) Then
 ----------------------------------------------
 3 - Open NodeJs Command Prompt Then Write (gulp name_of_task) For Run gulpfile.js Code
+    ||OR
+4 - Write (gulp) For Run Default Function Import
 --------------------------------------------------------------------------------------
