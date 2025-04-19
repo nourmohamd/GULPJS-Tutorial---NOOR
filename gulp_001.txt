@@ -24,3 +24,58 @@ gulp.task("k1", async function() {
     return gulp.src("project/index.html")
     .pipe(gulp.dest("dist/html"));
 });
+
+Lesson 2 ===> Ways To Use Plugins
+way 1
+=====
+1 - const gulp = require("gulp");
+2 - 
+    gulp.task("name_task", async function () {
+        statements Executes When You Write (gulp name_task) in NodeJS command Prompt
+    });
+way 2
+=====
+1 - const { src, dest } = require("gulp");
+2 - exports.default = function () { Your Code Here }
+Run By:gulp
+Example1:
+??????Move All Files From Project To Dist
+const {src, dest} = require("gulp");
+exports.default = function () {
+    src("project/*.*)
+    .pipe(dest("dist"));
+}
+
+Lesson 3 ===> gulp-concat Plugin
+================================
+
+URL
+---
+https://www.npmjs.com/package/gulp-concat
+
+Installiation
+-------------
+npm install --save-dev gulp-concat
+
+What is it work?
+----------------
+For Concatination Files Together For Generates One File For << Client >>
+
+Example:
+--------
+1 - Either
+const gulp = require("gulp");
+const concat = require("gulp-concat");
+gulp.task("name_task", async function () {
+    return gulp.src("project/*.css")
+    .pipe(concat("main.css"))
+    .pipe(gulp.dest("dist/css"));
+});
+2 - Or
+const { src, dest } = require("gulp");
+const concat = require("gulp-concat");
+exports.default = function () {
+  return src("project/css/*.css")
+    .pipe(concat("style.css"))
+    .pipe(dest("dist/css"));
+};
