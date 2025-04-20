@@ -79,3 +79,61 @@ exports.default = function () {
     .pipe(concat("style.css"))
     .pipe(dest("dist/css"));
 };
+
+Lesson 4 ===> gulp-autoprefixer
+===============================
+
+URL
+---
+https://www.npmjs.com/package/gulp-autoprefixer
+
+Installiation
+-------------
+npm install --save-dev gulp-autoprefixer
+
+What is it work?
+----------------
+It adds Vendor Prefixes Automateclly to Code CSS
+
+Example:
+--------
+import gulp from "gulp";
+import concat from "gulp-concat";
+import autoprefixer from "gulp-autoprefixer";
+export default () =>
+  gulp
+    .src("project/css/*.css")
+    .pipe(autoprefixer("last 2 versions"))
+    .pipe(concat("all.css"))
+    .pipe(gulp.dest("dist/css"));
+
+Lesson 5 ===> gulp-sass
+=======================
+
+URL
+---
+https://www.npmjs.com/package/gulp-sass
+
+Installiation
+-------------
+npm install sass gulp-sass --save-dev
+
+What is it work?
+----------------
+This Plugin is for Make Compiling For Sass Files
+
+Example:
+--------
+import gulp from "gulp";
+import concat from "gulp-concat";
+import autoprefixer from "gulp-autoprefixer";
+import dartSass from "sass";
+import gulpSass from "gulp-sass";
+const sass = gulpSass(dartSass);
+export default () =>
+  gulp
+    .src("project/app.css")
+    .pipe(sass()) || .pipe(sass({outputStyle: 'compressed'}))
+    .pipe(autoprefixer("last 2 versions"))
+    .pipe(concat("aaa.css"))
+    .pipe(gulp.dest("dist"));
