@@ -139,6 +139,7 @@ export default () =>
     .pipe(gulp.dest("dist"));
 
 Lesson 6 ===> gulp-pug
+======================
 
 URL
 ---
@@ -163,3 +164,57 @@ function a(cb) {
   cb();
 }
 exports.default = a;
+
+Lesson 7 ===> Local Server ( static-server )
+============================================
+
+URL
+---
+https://www.npmjs.com/package/static-server
+
+Installiation
+-------------
+npm install static-server --save
+
+What is it work?
+----------------
+It Make Local Server
+
+Example:
+--------
+1 - Create server.js file For Server Next gulpfile.js
+
+--server.js
+-----------
+var StaticServer = require("static-server");
+var server = new StaticServer({
+  rootPath: "./dist/", // required, the root of the server file tree
+  port: 8000, // required, the port to listen
+});
+
+server.start(function () {
+  console.log("Server Starting On Port :", server.port);
+});
+2 - in gulpfile.js Write
+
+--gulpfile.js
+-------------
+const { src, dest } = require("gulp");
+const pug = require("gulp-pug");
+const concat = require("gulp-concat");
+function a(cb) {
+  require("./server.js");
+  src("project/html/a1.pug")
+    .pipe(pug({ pretty: true }))
+    .pipe(concat("index.html"))
+    .pipe(dest("dist/"));
+  cb();
+}
+
+exports.default = a;
+
+To Run Server
+-------------
+node server.js ===> in nodejs command Prompt
+|
+gulp ===> Run Task
