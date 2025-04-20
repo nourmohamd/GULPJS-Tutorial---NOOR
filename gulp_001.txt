@@ -137,3 +137,29 @@ export default () =>
     .pipe(autoprefixer("last 2 versions"))
     .pipe(concat("aaa.css"))
     .pipe(gulp.dest("dist"));
+
+Lesson 6 ===> gulp-pug
+
+URL
+---
+https://www.npmjs.com/package/gulp-pug
+
+Installiation
+-------------
+npm install gulp-pug --save-dev
+
+What is it work?
+----------------
+This Plugin is for Make Compiling For Pug Files
+
+Example:
+--------
+const { src, dest } = require("gulp");
+const pug = require("gulp-pug");
+function a(cb) {
+  src("project/html/*.pug")
+  .pipe(pug()) || .pipe(pug({pretty: true}))
+  .pipe(dest("dist/html"));
+  cb();
+}
+exports.default = a;
