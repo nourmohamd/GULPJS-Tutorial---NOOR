@@ -218,3 +218,47 @@ To Run Server
 node server.js ===> in nodejs command Prompt
 |
 gulp ===> Run Task
+
+Lesson 8 ===> Watching
+======================
+
+URL
+---
+https://gulpjs.com/docs/en/getting-started/watching-files
+
+Installiation
+-------------
+Watching Didn't need to any install only contain in gulp
+const {watch, series} = require("gulp");
+
+What is it work?
+----------------
+It Make Always Watch for any Changes in path
+
+Full Example:
+-------------
+const { src, dest, watch, series } = require("gulp");
+const pug = require("gulp-pug");
+const concat = require("gulp-concat");
+const sass = require("gulp-sass")(require("sass"));
+
+function css(cb) {
+  src("./project/css/main.scss")
+    .pipe(sass())
+    .pipe(concat("style.css"))
+    .pipe(dest("./dist/css"));
+  cb();
+}
+
+function html(cb) {
+  src("./project/index.pug")
+    .pipe(pug({ pretty: true }))
+    .pipe(dest("./dist"));
+  cb();
+}
+
+exports.default = () => {
+  require("./server.js");
+  watch("./project/css/**/*.scss", series([css]));
+  watch(["./project/index.pug", "./project/**/*.pug"], series([html]));
+};
