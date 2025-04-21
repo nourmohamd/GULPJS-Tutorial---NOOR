@@ -262,3 +262,110 @@ exports.default = () => {
   watch("./project/css/**/*.scss", series([css]));
   watch(["./project/index.pug", "./project/**/*.pug"], series([html]));
 };
+
+Lesson 9 ===> gulp-livereload
+=============================
+
+URL
+---
+https://www.npmjs.com/package/gulp-livereload
+
+Installiation
+-------------
+npm install gulp-livereload --save-dev
+
+What is it work?
+----------------
+It is same from {live server} Extenssion in VS Code But it works with gulpfile.js file
+
+Full Example:
+-------------
+const { src, dest, watch, series } = require("gulp");
+const pug = require("gulp-pug");
+const concat = require("gulp-concat");
+const sass = require("gulp-sass")(require("sass"));
+const livereload = require("gulp-livereload");
+function css(cb) {
+  src("./project/css/main.scss")
+    .pipe(sass())
+    .pipe(concat("style.css"))
+    .pipe(dest("./dist/css"))
+    .pipe(livereload());
+  cb();
+}
+
+function html(cb) {
+  src("./project/index.pug")
+    .pipe(pug({ pretty: true }))
+    .pipe(dest("./dist"))
+    .pipe(livereload());
+  cb();
+}
+
+exports.default = () => {
+  require("./server.js");
+  livereload.listen();
+  watch("./project/css/**/*.scss", series([css]));
+  watch(["./project/index.pug", "./project/**/*.pug"], series([html]));
+};
+
+Then in every html|pug file Write This Rules
+--------------------------------------------
+<script src="http://localhost:35729/livereload.js"></script>
+
+Then Run Your Gulp Task
+-----------------------
+
+Open index.html by http://localhost:port-server-number
+------------------------------------------------------
+
+Lesson 10 ===> gulp-sourcemaps
+==============================
+
+URL
+---
+https://www.npmjs.com/package/gulp-sourcemaps
+
+Installiation
+-------------
+npm install gulp-sourcemaps --save-dev
+
+What is it work?
+----------------
+It Make Accessibility To Code CSS From Browser For Elements 
+Easeir because it write name of file css next of css code
+
+Example:
+--------
+const { src, dest, watch, series } = require("gulp");
+const pug = require("gulp-pug");
+const concat = require("gulp-concat");
+const sass = require("gulp-sass")(require("sass"));
+const livereload = require("gulp-livereload");
+const sourcemaps = require("gulp-sourcemaps");
+function css(cb) {
+  src("./project/css/main.scss")
+    .pipe(sourcemaps.init())
+    .pipe(sass())
+    .pipe(concat("style.css"))
+    .pipe(sourcemaps.write(".")) ===> { For Make File name.css.map next of name.css }, Either Without "."
+    ======> The File name.css.map will be
+    .pipe(dest("./dist/css"))
+    .pipe(livereload());
+  cb();
+}
+
+function html(cb) {
+  src("./project/index.pug")
+    .pipe(pug({ pretty: true }))
+    .pipe(dest("./dist"))
+    .pipe(livereload());
+  cb();
+}
+
+exports.default = () => {
+  require("./server.js");
+  livereload.listen();
+  watch("./project/css/**/*.scss", series([css]));
+  watch(["./project/index.pug", "./project/**/*.pug"], series([html]));
+};
