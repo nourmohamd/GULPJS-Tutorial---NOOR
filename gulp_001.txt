@@ -369,3 +369,62 @@ exports.default = () => {
   watch("./project/css/**/*.scss", series([css]));
   watch(["./project/index.pug", "./project/**/*.pug"], series([html]));
 };
+
+Lesson 11 ===> gulp-uglify
+==========================
+
+URL
+---
+https://www.npmjs.com/package/gulp-uglify
+
+Installiation
+-------------
+npm install gulp-uglify --save-dev
+
+What is it work?
+----------------
+It Uses For Compressed JavaScript Files
+
+Example:
+--------
+const { src, dest } = require("gulp");
+const uglify = require("gulp-uglify");
+function js(cb) {
+  src("./project/script/*.js").pipe(uglify()).pipe(dest("./dist/script"));
+  cb();
+}
+exports.default = js;
+
+Lesson 12 ===> gulp-notify
+==========================
+
+URL
+---
+https://www.npmjs.com/package/gulp-uglify
+
+Installiation
+-------------
+npm install gulp-notify --save-dev
+
+What is it work?
+----------------
+It Show Message For Status Of Code { notification }
+We Added .pipe(notify("Our Message")) Before livereload and after .pipe(dest("..."))
+
+Example:
+--------
+const { src, dest, watch, series } = require("gulp");
+const notify = require("gulp-notify");
+const livereload = require("gulp-livereload");
+function ex(cb) {
+  src("./project/file.txt")
+    .pipe(dest("./dist"))
+    .pipe(notify("Yes That Nice"))
+    .pipe(livereload());
+  cb();
+}
+exports.default = () => {
+  require("./server.js");
+  livereload.listen();
+  watch("./project/file.txt", series(ex));
+};
