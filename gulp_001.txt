@@ -428,3 +428,81 @@ exports.default = () => {
   livereload.listen();
   watch("./project/file.txt", series(ex));
 };
+
+Lesson 13 ===> gulp-zip
+=======================
+
+URL
+---
+https://www.npmjs.com/package/gulp-zip
+
+Installiation
+-------------
+npm install gulp-zip --save-dev
+
+What is it work?
+----------------
+This Plugin is for Compressed All Project In One File
+
+Full Example And How You Can Use All Plugin With Them:
+------------------------------------------------------
+// Definiation All Plugins
+import { watch, src, dest, series } from "gulp";
+import pug from "gulp-pug";
+import concat from "gulp-concat";
+import prefix from "gulp-autoprefixer";
+import gulpSass from "gulp-sass";
+import * as dartSass from "sass";
+const sass = gulpSass(dartSass);
+import uglify from "gulp-uglify";
+import notify from "gulp-notify";
+import zip from "gulp-zip";
+import sourcemaps from "gulp-sourcemaps";
+
+// Task For CSS
+function css(cb) {
+  src("./project/css/main.scss")
+    .pipe(sass())
+    .pipe(sourcemaps.init())
+    .pipe(prefix("last 2 versions"))
+    .pipe(concat("style.css"))
+    .pipe(sourcemaps.write("."))
+    .pipe(dest("./dist/css"))
+    .pipe(notify("CSS Modified Successfuly"));
+  cb();
+}
+
+// Task For HTML
+function html(cb) {
+  src("./project/index.pug")
+    .pipe(pug({ pretty: true }))
+    .pipe(dest("./dist"))
+    .pipe(notify("HTML Modified Successfuly"));
+  cb();
+}
+
+// Task For JavaScript
+function js(cb) {
+  src("./project/script/*.js")
+    .pipe(uglify())
+    .pipe(dest("./dist/script"))
+    .notify("JavaScript Modified Successfuly");
+  cb();
+}
+
+// Task For Compress Project
+function compress(cb) {
+  src("dist/**/*.*")
+    .pipe(zip("Website.zip"))
+    .pipe(dest("."))
+    .pipe(notify("Finish Compressed Project"));
+  cb();
+}
+// Watching All Tasks ===> gulp ===> NodeJS Command Prompt
+export default () => {
+  watch("./project/css/**/*.scss", series(css));
+  watch(["./project/index.pug", "./project/html/*.pug"], series(html));
+  watch("./project/script/*.js", series(js));
+  watch("dist/", series(compress));
+};
+
