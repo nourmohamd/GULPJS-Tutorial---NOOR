@@ -506,3 +506,46 @@ export default () => {
   watch("dist/", series(compress));
 };
 
+Lesson 14 ===> vinyl-ftp
+
+URL
+---
+https://www.npmjs.com/package/vinyl-ftp
+
+Installiation
+-------------
+npm install vinyl-ftp --save-dev
+
+What is it work?
+----------------
+It Uses For Upload All Changes From Your WorkSpace To Remote Website On save
+
+Example:
+--------
+import { src, dest, watch, series } from "gulp"
+import ftp from "vinyl-ftp"
+import livereload from "gulp-livereload"
+function deploy(cb) {
+  var conn = ftp.create( {
+          host:     'mywebsite.tld', ===> Name Of Your Website
+          user:     'me', ===> name of user for cpanel
+          password: 'mypass', ===> password of cpanel
+          parallel: 10, ===> Number Of Files That Send Changes
+  });
+
+  // using base = '.' will transfer everything to /public_html correctly
+  // turn off buffering in gulp.src for best performance
+
+   src( ["./dist/**/*.*"], { base: '.', buffer: false } )
+    .pipe( conn.newer( '/public_html' ) ) // only upload newer files
+    .pipe( conn.dest( '/public_html' ) )
+    .pipe(livereload())
+  cb();
+}
+export default () => {
+  watch("./dist/**/*.*", series(deploy));
+}
+
+// The End
+// Note: For Install Any Plugin By Version Write Rule As:
+// npm install name_of_plugin@version_number --save-dev
