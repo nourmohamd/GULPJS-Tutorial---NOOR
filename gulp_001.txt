@@ -549,3 +549,6 @@ export default () => {
 // The End
 // Note: For Install Any Plugin By Version Write Rule As:
 // npm install name_of_plugin@version_number --save-dev
+
+// Note: For Ignore Any File Write As !"file path"
+// src(["file1", !"file_ignore"])
