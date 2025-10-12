@@ -1,4 +1,4 @@
-Gulp.JS ===> Is A toolkit to automate & enhance your workflow
+Gulp.JS ===> It Is A toolkit Or Task Runner to automate & enhance your workflow
 -------------------------------------------------------------
 
 You Should Know { HTML, CSS, JavaScript } Before Begin In This Tool
