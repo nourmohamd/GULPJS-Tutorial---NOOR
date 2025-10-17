@@ -1,8 +1,12 @@
 GulpJS Summary:
 ===============
+Installiation GulpJS:
+=====================
+1- npm install gulp -g | npm install --global gul
 ===============
 1- src, dest
 2- How can you use Plugins In GulpJS
 3- gulp-concat plugin ( npm install --save-dev gulp-concat )
 4- gulp-autoprefixer ( npm install --save-dev gulp-autoprefixer )
 5- gulp-sass ( npm install sass gulp-sass --save-dev )
+6- gulp-pug ( npm install --save-dev gulp-pug )
