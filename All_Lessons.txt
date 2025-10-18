@@ -12,3 +12,5 @@ Installiation GulpJS:
 5- gulp-sass ( npm install sass gulp-sass --save-dev )
 6- gulp-pug ( npm install --save-dev gulp-pug )
 7- static-server ( npm install static-server --save )
+8- gulp.watch, gulp.series ( functions in gulp Package )
+9- gulp-livereload ( npm install gulp-liverload --save-dev )
