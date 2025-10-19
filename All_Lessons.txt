@@ -14,3 +14,27 @@ Installiation GulpJS:
 7- static-server ( npm install static-server --save )
 8- gulp.watch, gulp.series ( functions in gulp Package )
 9- gulp-livereload ( npm install gulp-liverload --save-dev )
+10- gulp-sourcemaps ( npm install gulp-sourcemaps --save-dev )
+11- gulp-uglify ( npm install gulp-uglify --save-dev )
+12- gulp-notify ( npm install gulp-notify --save-dev )
+13- gulp-zip ( npm install gulp-zip --save-dev )
+14- vinyl-ftp ( npm install vinyl-ftp --save-dev )
+
+Sorted All Points
+=================
+Section 1 //////////////
+========================
+1- gulp-concat ( npm install --save-dev gulp-concat )
+2- gulp-autoprefixer ( npm install --save-dev gulp-autoprefixer )
+3- gulp-pug ( npm install --save-dev gulp-pug )
+
+Section 2 //////////////
+========================
+1- gulp-sass ( npm install sass gulp-sass --save-dev )
+2- static-server ( npm install static-server --save )
+3- gulp-livereload ( npm install gulp-liverload --save-dev )
+4- gulp-sourcemaps ( npm install gulp-sourcemaps --save-dev )
+5- gulp-uglify ( npm install gulp-uglify --save-dev )
+6- gulp-notify ( npm install gulp-notify --save-dev )
+7- gulp-zip ( npm install gulp-zip --save-dev )
+8- vinyl-ftp ( npm install vinyl-ftp --save-dev )
